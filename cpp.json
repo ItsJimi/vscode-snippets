@@ -9,11 +9,11 @@
       "",
       "class $2 {",
       "public:",
-      "  $2(void);",
-      "  $2($2 const & src);",
-      "  virtual ~$2(void);",
+        "\t$2(void);",
+        "\t$2($2 const & src);",
+        "\tvirtual ~$2(void);",
       "",
-      "  $2& operator=($2 const & rhs);",
+        "\t$2& operator=($2 const & rhs);",
       "};",
       "",
       "#endif"
@@ -28,16 +28,16 @@
       "/* CONSTRUCTORS */",
       "",
       "$1::$1(void) {",
-      "  return;",
+        "\treturn;",
       "}",
       "",
       "$1::$1($1 const & src) {",
-      "  *this = src;",
-      "  return;",
+        "\t*this = src;",
+        "\treturn;",
       "}",
       "",
       "$1::~$1(void) {",
-      "  return;",
+        "\treturn;",
       "}",
       "",
       "/* MEMBERS */",
@@ -45,7 +45,7 @@
       "/* OPERATORS */",
       "",
       "$1& $1::operator=($1 const & rhs) {",
-      "  return *this;",
+        "\treturn *this;",
       "}"
     ],
     "description": "Create c++ methods"
@@ -56,10 +56,63 @@
       "#include \"$1.hpp\"",
       "",
       "int main(void) {",
-      "  $0",
-      "  return (0);",
+        "\t$0",
+        "\treturn (0);",
       "}"
     ],
     "description": "Create c++ main"
+  },
+  "inc": {
+    "prefix": "inc",
+    "body": [
+      "#include \"$1.hpp\""
+    ],
+    "description": "Create c++ include"
+  },
+  "incs": {
+    "prefix": "inc <",
+    "body": [
+      "#include <$1>"
+    ],
+    "description": "Create c++ include"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+        "\t$0",
+      "}"
+    ],
+    "description": "Create c++ if"
+  },
+  "ifelse": {
+    "prefix": "ifelse",
+    "body": [
+      "if ($1) {",
+        "\t$2",
+      "} else {",
+        "\t$3",
+      "}"
+    ],
+    "description": "Create c++ if else"
+  },
+  "getter": {
+    "prefix": "getter",
+    "body": [
+      "$1 $2::get$3(void) const {",
+        "\treturn $4;",
+      "}"
+    ],
+    "description": "Create c++ getter"
+  },
+  "setter": {
+    "prefix": "setter",
+    "body": [
+      "void $1::set$2($s3 set) {",
+        "\tthis->_$4 = set;",
+        "\treturn;",
+      "}"
+    ],
+    "description": "Create c++ setter"
   }
 }
